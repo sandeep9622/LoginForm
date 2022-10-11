@@ -8,20 +8,20 @@
     <h3>Login Page</h3>
     @ViewBag.error
     <form method="post" asp-controller="account" asp-action="login">
-        <table border="0" cellpadding="2" cellspacing="2">
-            <tr>
-                <td>Username</td>
-                <td><input type="text" name="username"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input type="submit" value="Login"></td>
-            </tr>
-        </table>
+        <div>
+            <div>
+                <label>Username</label>
+                <div><input type="text" name="username"></div>
+            </div>
+            <div>
+                <label>Password</label>
+                <div><input type="password" name="password"></div>
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <div><input type="submit" value="Login"></div>
+            </div>
+        </div>
     </form>
 
 </body>
