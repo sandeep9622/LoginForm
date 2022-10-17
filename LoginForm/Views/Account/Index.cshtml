@@ -2,27 +2,65 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous"></script>
+    <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Custom/login.css" rel="stylesheet" />
+    <script src="~/lib/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.message a').click(function () {
+                $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+            });
+        });
+       
+    </script>
 </head>
+
 <body>
 
-    <h3>Login Page</h3>
-    @ViewBag.error
-    <form method="post" asp-controller="account" asp-action="login">
-        <div>
-            <div>
-                <label>Username</label>
-                <div><input type="text" name="username"></div>
+    @*<h3>Login Page</h3>
+        @ViewBag.error
+        <form method="post" asp-controller="account" asp-action="login">
+            <div class="container row">
+                <div class="col-md-6">
+                    <label>Username</label>
+                    <div><input class="form-control form-control-sm" type="text" name="username"></div>
+                </div>
+                <div class="col-md-6">
+                    <label>Password</label>
+                    <div><input class="form-control form-control-sm" type="password" name="password"></div>
+                </div>
+                <div class="offset-3 col-md-6">
+                    <label>&nbsp;</label>
+                    <div class="row">
+                        <input class="btn btn-success col-md-6" type="submit" value="Login">
+                        <input class="btn btn-danger col-md-6" type="reset" value="Reset">
+                    </div>
+                </div>
             </div>
-            <div>
-                <label>Password</label>
-                <div><input type="password" name="password"></div>
-            </div>
-            <div>
-                <label>&nbsp;</label>
-                <div><input type="submit" value="Login"></div>
-            </div>
+        </form>*@
+
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <h3>Register</h3>
+                <input type="text" placeholder="name" />
+                <input type="password" placeholder="password" />
+                <input type="text" placeholder="email address" />
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form">
+                <h3>Login</h3>
+                <input type="text" placeholder="username" />
+                <input type="password" placeholder="password" />
+                <button>login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
         </div>
-    </form>
+    </div>
 
 </body>
 </html>
