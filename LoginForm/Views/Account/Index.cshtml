@@ -44,6 +44,7 @@
 
     <div class="login-page">
         <div class="form">
+
             <form class="register-form">
                 <h3>Register</h3>
                 <input type="text" placeholder="name" />
@@ -52,13 +53,15 @@
                 <button>create</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
-            <form class="login-form">
+            <form class="login-form" method="post" asp-controller="account" asp-action="login">
                 <h3>Login</h3>
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" />
-                <button>login</button>
+                <span class="text-danger">@ViewBag.error</span>
+                <input type="text" placeholder="username" name="username" />
+                <input type="password" placeholder="password" name="password" />
+                <button type="submit">login</button>
                 <p class="message">Not registered? <a href="#">Create an account</a></p>
             </form>
+           
         </div>
     </div>
 

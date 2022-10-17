@@ -4,13 +4,142 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Success</title>
+    <link href="~/Custom/success.css" rel="stylesheet" />
+    <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/js/bootstrap.js"></script>
 </head>
 <body>
 
-    <h3>Success Page</h3>
-    Welcome @Context.Session.GetString("username")
-    <br>
-    <a asp-controller="account" asp-action="logout">Logout</a>
+    <div class="entry-page">
+        <div class="form">
+
+            <div>
+                <h3>
+                    Billing details
+                    <div style=" display: inline; float: right; text-decoration: none; font-size: initial; font-weight: 100;">
+                        Welcome @Context.Session.GetString("username")
+                        <a asp-controller="account" asp-action="logout">Logout</a>
+                    </div>
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">G R No</label>
+                        <div class="col-12">
+                            <input type="text" name="GRNo" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">Date</label>
+                        <div class="col-12">
+                            <input type="text" name="Date" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">Vehical No.</label>
+                        <div class="col-12">
+                            <input type="text" name="vehicalNo" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">From</label>
+                        <div class="col-12">
+                            <input type="text" name="From" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">To</label>
+                        <div class="col-12">
+                            <input type="text" name="To" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">Value Of Goods</label>
+                        <div class="col-12">
+                            <input type="text" name="ValueOfGoods" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">Invoice No</label>
+                        <div class="col-12">
+                            <input type="text" name="Invoice No" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h3>Consigner's Details</h3>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">Name</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsignerName" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">GST No</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsignerGSTNo" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <label class="col-12">Address</label>
+                        <div class="col-12">
+                            <textarea type="text" name="ConsignerAddress" class="form-control form-control-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h3>Consignee's Details</h3>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">Name</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsigneeName" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">GST No</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsigneeGSTNo" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <label class="col-12">Address</label>
+                        <div class="col-12">
+                            <textarea type="text" name="ConsigneeAddress" class="form-control form-control-sm" ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>

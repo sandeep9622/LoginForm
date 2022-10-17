@@ -22,7 +22,7 @@ namespace LoginForm.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            if (username != null && password != null && username.Equals("sandeep") && password.Equals("deep"))
+            if (username != null && password != null && username.Equals("sandeep") && password.Equals("deep@123"))
             {
                 byte[] usernameBytes = Encoding.ASCII.GetBytes(username);
                 HttpContext.Session.Set("username", usernameBytes);
