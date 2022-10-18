@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Success</title>
+    <title>Invoice Form</title>
     <link href="~/Custom/success.css" rel="stylesheet" />
     <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/js/bootstrap.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
     <div class="entry-page">
-        <div class="form">
+        <form class="form" method="post" asp-controller="" asp-action="">
 
             <div>
                 <h3>
@@ -76,7 +76,7 @@
                     <div class="row">
                         <label class="col-12">Invoice No</label>
                         <div class="col-12">
-                            <input type="text" name="Invoice No" class="form-control form-control-sm" />
+                            <input type="text" name="InvoiceNo" class="form-control form-control-sm" />
                         </div>
                     </div>
                 </div>
@@ -100,6 +100,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">Mobile</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsignerMobile" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">Email</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsignerEmail" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="row">
                         <label class="col-12">Address</label>
@@ -108,6 +125,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
 
             <div class="row">
@@ -128,17 +148,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">Mobile</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsigneeMobile" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-12">Email</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsigneeEmail" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="row">
                         <label class="col-12">Address</label>
                         <div class="col-12">
-                            <textarea type="text" name="ConsigneeAddress" class="form-control form-control-sm" ></textarea>
+                            <textarea type="text" name="ConsigneeAddress" class="form-control form-control-sm"></textarea>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
+        </form>
     </div>
 
 </body>
