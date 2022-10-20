@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LoginForm.Models;
+using LoginForm.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +13,11 @@ namespace LoginForm.Controllers
     [Route("Account")]
     public class AccountController : Controller
     {
+        private readonly IDapperService _dapper;
+        public AccountController(IDapperService dapper)
+        {
+            _dapper = dapper;
+        }
         [Route("")]
         [Route("index")]
         [Route("~/")]
@@ -20,13 +28,24 @@ namespace LoginForm.Controllers
 
         [Route("login")]
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            if (username != null && password != null && username.Equals("sandeep") && password.Equals("deep@123"))
+            
+            if (username != null && password != null)
             {
-                byte[] usernameBytes = Encoding.ASCII.GetBytes(username);
-                HttpContext.Session.Set("username", usernameBytes);
-                return View("Success");
+                Users result = await Task.FromResult(_dapper.Get<Users>($"select * from Users where Name = " + username + " and password = " + password, null, CommandType.Text));
+                if(result != null)
+                {
+                    byte[] usernameBytes = Encoding.ASCII.GetBytes(username);
+                    HttpContext.Session.Set("username", usernameBytes);
+                    return View("Success");
+                }
+                else
+                {
+                    ViewBag.error = "Invalid Account";
+                    return View("Index");
+                }
+                
             }
             else
             {
