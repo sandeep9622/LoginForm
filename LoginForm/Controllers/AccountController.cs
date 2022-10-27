@@ -33,7 +33,7 @@ namespace LoginForm.Controllers
             
             if (username != null && password != null)
             {
-                Users result = await Task.FromResult(_dapper.Get<Users>($"select * from Users where Name = " + username + " and password = " + password, null, CommandType.Text));
+                Users result = await Task.FromResult(_dapper.Get<Users>($"select * from Users where Name = '" + username + "' and password = '" + password + "'", null, CommandType.Text));
                 if(result != null)
                 {
                     byte[] usernameBytes = Encoding.ASCII.GetBytes(username);

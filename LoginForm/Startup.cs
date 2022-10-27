@@ -50,7 +50,7 @@ namespace LoginForm
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{Controller:Demo}/{action=Index}/{Id?}");
+                    pattern: "{Controller=Demo}/{action=Index}/{Id?}");
             });
         }
     }

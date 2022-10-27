@@ -12,7 +12,7 @@ namespace LoginForm.Controllers
     {
         [Route("Save")]
         [HttpPost]
-        public IActionResult SaveInvoice(InvoiceModel invoice)
+        public IActionResult SaveInvoice()
         {
 
             return View();
