@@ -11,15 +11,15 @@
 <body>
 
     <div class="entry-page">
-        <form class="form" method="post" asp-controller="" asp-action="">
+        <form class="form" method="post" asp-controller="Invoice" asp-action="Save">
 
             <div>
                 <h3>
                     Billing details
-                    <div style=" display: inline; float: right; text-decoration: none; font-size: initial; font-weight: 100;">
+                    <span style=" display: inline; float: right; text-decoration: none; font-size: initial; font-weight: 100;">
                         Welcome @Context.Session.GetString("username")
                         <a asp-controller="account" asp-action="logout">Logout</a>
-                    </div>
+                    </span>
                 </h3>
             </div>
 
@@ -52,7 +52,7 @@
                     <div class="row">
                         <label class="col-12">From</label>
                         <div class="col-12">
-                            <input type="text" name="From" class="form-control form-control-sm" />
+                            <input type="text" name="LocationFrom" class="form-control form-control-sm" />
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="row">
                         <label class="col-12">To</label>
                         <div class="col-12">
-                            <input type="text" name="To" class="form-control form-control-sm" />
+                            <input type="text" name="LocationTo" class="form-control form-control-sm" />
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="row">
                         <label class="col-12">Value Of Goods</label>
                         <div class="col-12">
-                            <input type="text" name="ValueOfGoods" class="form-control form-control-sm" />
+                            <input type="text" name="GoodsValue" class="form-control form-control-sm" />
                         </div>
                     </div>
                 </div>
@@ -80,11 +80,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">GST Type</label>
+                        <div class="col-12">
+                            <select class="form-control form-control-sm" name="GSTType">
+                                <option>Select</option>
+                                <option value="IGST + SGST">IGST + SGST</option>
+                                <option value="CGST">CGST</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3>Consigner's Details</h3>
             </div>
 
             <div class="row">
-                <h3>Consigner's Details</h3>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">Name</label>
                         <div class="col-12">
@@ -92,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">GST No</label>
                         <div class="col-12">
@@ -100,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">Mobile</label>
                         <div class="col-12">
@@ -109,7 +124,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">Email</label>
                         <div class="col-12">
@@ -117,6 +132,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">State</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsignerState" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">City</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsignerCity" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-12">
                     <div class="row">
                         <label class="col-12">Address</label>
@@ -130,9 +164,12 @@
 
             </div>
 
-            <div class="row">
+            <div>
                 <h3>Consignee's Details</h3>
-                <div class="col-md-6">
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">Name</label>
                         <div class="col-12">
@@ -140,7 +177,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">GST No</label>
                         <div class="col-12">
@@ -148,7 +186,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">Mobile</label>
                         <div class="col-12">
@@ -157,7 +196,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="row">
                         <label class="col-12">Email</label>
                         <div class="col-12">
@@ -165,6 +204,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">State</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsigneeState" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <label class="col-12">City</label>
+                        <div class="col-12">
+                            <input type="text" name="ConsigneeCity" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-12">
                     <div class="row">
                         <label class="col-12">Address</label>
@@ -176,6 +234,10 @@
 
             </div>
 
+            <div class="row">
+                <button type="submit" class="btn btn-outline-primary">Save</button>
+                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+            </div>
         </form>
     </div>
 
