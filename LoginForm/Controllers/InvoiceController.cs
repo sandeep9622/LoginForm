@@ -61,5 +61,16 @@ namespace LoginForm.Controllers
             var result = _dapper.Insert<Invoices>(query, dbparams, System.Data.CommandType.Text);
             return View();
         }
+
+
+        [Route("")]
+        [Route("invoices")]
+        //[Route("/")]
+        public IActionResult Index()
+        {
+            string query = @"select * from Invoices";
+            List<Invoices> result = _dapper.GetAll<Invoices>(query,null,CommandType.Text);
+            return View(result);
+        }
     }
 }

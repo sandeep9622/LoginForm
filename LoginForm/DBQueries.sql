@@ -12,8 +12,8 @@ Create table Users(
 Insert into Users(UserId,Name,Password,Email) Values(1,'sandeep','deep','sandeep.sappal96@gmail.com');
     
     
-Create table Invoices(
-	InvoiceId int primary key,
+create table Invoices
+(
     GRNo int auto_increment unique,
     Date	datetime default current_timestamp not null,
     VehicalNo nvarchar(250) not null,

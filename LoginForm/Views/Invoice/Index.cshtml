@@ -1,5 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using LoginForm.Models
+@model List<Invoices> 
 @{
 }
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+    <title>Invoice Form</title>
+    <link href="~/Custom/success.css" rel="stylesheet" />
+    <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/js/bootstrap.js"></script>
+    </head>
+    <body>
+        <div class="entry-page">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>GRNo</th>
+                        <th>Date</th>
+                        <th>VehicalNo</th>
+                        <th>GoodsValue</th>
+                        <th>InvoiceId</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.GRNo</td>
+                            <td>@item.Date</td>
+                            <td>@item.VehicalNo</td>
+                            <td>@item.GoodsValue</td>
+                            <td>@item.InvoiceId</td>
+                            <td> <a href="#"> View </a> | <a href="#">Delete</a></td>
+                        </tr>
+                    }
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
