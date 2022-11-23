@@ -72,5 +72,18 @@ namespace LoginForm.Controllers
             List<Invoices> result = _dapper.GetAll<Invoices>(query,null,CommandType.Text);
             return View(result);
         }
+
+        [Route("invoiceById")]
+        public IActionResult InvoiceById(int id)
+        {
+            string query = @"select * from Invoices where InvoiceNo = @InvoiceNo";
+
+            var dbparams = new DynamicParameters();
+
+            dbparams.Add("InvoiceNo", id, DbType.String);
+            Invoices result = _dapper.Get<Invoices>(query, dbparams, CommandType.Text);
+
+            return View(result);
+        }
     }
 }

@@ -32,7 +32,7 @@
                             <td>@item.VehicalNo</td>
                             <td>@item.GoodsValue</td>
                             <td>@item.InvoiceId</td>
-                            <td> <a href="#"> View </a> | <a href="#">Delete</a></td>
+                        <td> <a asp-controller="Invoice" asp-action="invoiceById" asp-route-id="@item.InvoiceNo"> View </a> | <a href="#">Delete</a></td>
                         </tr>
                     }
                     <tr>

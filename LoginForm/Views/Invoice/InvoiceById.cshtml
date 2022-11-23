@@ -1,0 +1,321 @@
+﻿@using LoginForm.Models
+@model Invoices
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(245, 245, 157);
+        }
+
+        .content {
+            margin: 20px;
+            /*border:2px solid black;*/
+            padding: 25px;
+        }
+
+        .content-header {
+            color: red;
+            padding-bottom: 10px;
+            border-bottom: 2px solid black;
+        }
+
+        .section {
+            border-bottom: 2px solid black;
+
+            width: 100%;
+        }
+
+        .content-body {
+            margin-top: 5px;
+            padding-top: 5px;
+        }
+
+        .side-field {
+            border: 1px solid black;
+            height: 15px;
+            width: 250px;
+            float: right;
+        }
+
+        .w-50 {
+
+            width: 50%;
+            float: left;
+        }
+
+        .w-20 {
+            display: inline-block;
+            width: 39%;
+            vertical-align: top;
+        }
+
+        .w-15 {
+            display: inline-block;
+            width: 15%;
+        }
+
+        .w-60 {
+            display: inline-block;
+            width: 60%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .text-right{
+            text-align: right;
+        }
+
+        .w-33 {
+            display: inline-block;
+            width: 32%;
+        }
+
+        .w-10 {
+            display: inline-block;
+            width: 19%;
+        }
+
+        .border-right {
+            border-right: 1px solid black;
+        }
+
+        .border-left {
+            border-left: 1px solid black;
+        }
+
+        .height-7 {
+            min-height: 7rem;
+        }
+
+        .height-14 {
+            min-height: 17rem;
+        }
+
+        .height-13 {
+            min-height: 15.8rem;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid black;
+        }
+
+        .table-heading {
+            padding: 0px;
+            margin: 0px;
+            font-weight: bolder;
+        }
+
+        .pt-5 {
+            padding: 5px;
+        }
+
+        .field-box {
+            border: 1px solid black;
+            display: inline-block;
+            width: 100px;
+            height: 15px;
+        }
+    </style>
+    <script>
+        function printpdf(){
+            var divContents= document.getElementById("test").innerHTML;
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+       
+</script>
+</head>
+
+<body>
+    <button onclick="printpdf()" class="btn btn-info">Print</button>
+    <div class="content" id="test">
+        <div class="content-header">
+            <div style="width:20%;display: inline-block;vertical-align: top;">
+                GST IN:</br>
+                PAN No.</br>
+                <div style="color:Red;border:1px solid red;border-radius:50%;font-size:larger;width:30%;float:right;">
+                    R G C
+                </div>
+            </div>
+            <div style="width:50%;display: inline-block;text-align: center;">
+                <h1 style="background-color:red ;color:rgb(245, 245, 157)">Ram Goods Carriers</h1>
+                <span style="background-color:rgb(245, 245, 157);color:red;">Near Industrial Area, Opp. Sai Baba Mandir,
+                    Jagadhri Road,Ambala Cantt. 133001 (HR)</span>
+            </div>
+            <div style="width:25%;display: inline-block;text-align: end;vertical-align: top;">
+                9467630290</br>
+                9467630290</br>
+                9467630290</br>
+                9467630290</br>
+            </div>
+
+        </div>
+        <div class="content-body">
+            <div class="section height-7">
+                <div style="display:inline-block;width:60%;vertical-align: top;">
+                    <div class="detail-container">
+                        <label>Consignor's Name & Address</label>
+                        <div class="detail"></div>
+                    </div>
+                    <div class="detail-container">
+                        <label>Consignee's Name & Address</label>
+                        <div class="detail"></div>
+                    </div>
+                </div>
+                <div style="display:inline-block;width:30%;border-left:1px solid black;padding:10px">
+                    <div class="side-detail-field">
+                        <label>G.R. No</label>
+                        <div class="side-field">@Model.GRNo</div>
+                    </div>
+                    <div class="side-detail-field">
+                        <label>Date</label>
+                        <div class="side-field">@Model.Date</div>
+                    </div>
+                    <div class="side-detail-field">
+                        <label>Vehicle No.</label>
+                        <div class="side-field">@Model.VehicalNo</div>
+                    </div>
+                    <div class="side-detail-field">
+                        <label>From</label>
+                        <div class="side-field">@Model.LocationFrom</div>
+                    </div>
+                    <div class="side-detail-field">
+                        <label>To</label>
+                        <div class="side-field">@Model.LocationTo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section height-14">
+                <div class="w-50 height-14">
+                    <div class="w-10 border-right height-14">
+                        <div class="table-heading border-bottom">Package</div>
+                    </div>
+                    <div class="w-20 border-right height-14">
+                        <div class="table-heading border-bottom">Description(Said to Contain)</div>
+                    </div>
+                    <div class="w-10 border-right height-14">
+                        <div class="table-heading border-bottom">Weight</div>
+                    </div>
+                    <div class="w-10 border-right height-14">
+                        <div class="table-heading border-bottom">Rates</div>
+                    </div>
+                </div>
+                <div class="w-50 height-14">
+                    <div class="w-60 height-14 text-center">
+                        <div class="width:100%;text-align:center">
+                            <div class="table-heading border-bottom">Amounts</div>
+                        </div>
+                        <div class="w-33 border-right height-13">
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">Fright</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">G R Charges</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">Total Frieght</div>
+                            <div class="table-heading border-bottom">CGST</div>
+                            <div class="table-heading border-bottom">SGST</div>
+                            <div class="table-heading border-bottom">IGST</div>
+                            <div class="table-heading border-bottom">Labour Charge</div>
+                            <div class="table-heading">Grand Total</div>
+                        </div>
+                        <div class="w-33 border-right height-13">
+                            <div class="table-heading border-bottom">Paid</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">50/-</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading">&nbsp;</div>
+                        </div>
+                        <div class="w-33 height-13">
+                            <div class="table-heading border-bottom">To Pay</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading border-bottom">&nbsp;</div>
+                            <div class="table-heading">&nbsp;</div>
+                        </div>
+                    </div>
+
+                    <div class="w-20 border-left height-14">
+                        <div class="table-heading border-bottom">GST Paid By</div>
+                        <div class="table-heading border-bottom">(Payble by Tick the Relevent box)</div>
+                        <div class="table-heading border-bottom">Consignor</div>
+                        <div class="table-heading border-bottom">Consignee</div>
+                        <div class="table-heading border-bottom">On RCM Basis</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading border-bottom">Transporter</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading border-bottom">&nbsp;</div>
+                        <div class="table-heading">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="height-7 pt-5">
+                <div class="w-60">
+                    <div class="w-20">
+                        Value of Goods
+                        <div class="field-box"></div>
+                    </div>
+                    <div class="w-20">
+                        Invoice No.
+                        <div class="field-box"></div>
+                    </div>
+                    <div>
+                        Terms and Conditions :-</br>
+                        Toll Tax and Barrier Extra.</br>
+                        Toll Tax and Barrier Extra.</br>
+                        Toll Tax and Barrier Extra.</br>
+                        Toll Tax and Barrier Extra.</br>
+                        Toll Tax and Barrier Extra.</br>
+                    </div>
+                </div>
+                <div class="w-20 text-right">
+                    <h2 style="text-transform:uppercase;color:red">For ram goods carriers</h2>
+                    </br>
+                    <h3 style="color:red">Authorized Signatory</h3>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
